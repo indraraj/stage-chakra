@@ -1,6 +1,6 @@
 
 # FROM node:18-alpine AS builder
-FROM registry.access.redhat.com/ubi9/nodejs-20 as builder
+FROM registry.access.redhat.com/ubi9/nodejs-20 AS builder
 RUN npm install -g yarn
 
 ENV VITE_BACKEND_BASE_URL=http://localhost:8080

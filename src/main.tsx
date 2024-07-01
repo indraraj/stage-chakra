@@ -12,15 +12,11 @@ const queryClient = new QueryClient();
 const rootElement = document.getElementById("root");
 if (rootElement) {
   ReactDOM.createRoot(rootElement).render(
-    <>
-      <ChakraProvider theme={customTheme}>
-        <ColorModeScript
-          initialColorMode={customTheme.config.initialColorMode}
-        />
-        <QueryClientProvider client={queryClient}>
-          <App />
-        </QueryClientProvider>
-      </ChakraProvider>
-    </>
+    <ChakraProvider theme={customTheme}>
+      <ColorModeScript initialColorMode={customTheme.config.initialColorMode} />
+      <QueryClientProvider client={queryClient}>
+        <App />
+      </QueryClientProvider>
+    </ChakraProvider>
   );
 }

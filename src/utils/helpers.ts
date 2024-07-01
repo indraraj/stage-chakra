@@ -65,9 +65,6 @@ export const getConnectorTypeName = (connectorType: string) => {
     case connectorType.includes("pravega"):
       name = "Pravega";
       break;
-    default:
-      name = "";
-      break;
   }
 
   return name;

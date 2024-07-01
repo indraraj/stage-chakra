@@ -1,4 +1,4 @@
-name: Unit test with Vitest and React Testing Library
+name: Test
 
 on:
   push:

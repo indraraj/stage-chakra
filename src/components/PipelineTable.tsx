@@ -97,17 +97,17 @@ const PipelineTable: React.FC<PipelineTableProps> = ({
       <Table variant="simple">
         <TableCaption>
           {!isFiltered ? (
-            `List of configured active pipelines.`
+            "List of configured active pipelines."
           ) : data.length === 0 ? (
             <>
-              {`No matching pipeline is present. `}
+              {"No matching pipeline is present. "}
               <br />
-              <Button variant={"link"} onClick={onClear}>
+              <Button variant="link" onClick={onClear}>
                 Clear search field
               </Button>
             </>
           ) : (
-            `List of configured active pipelines matching the search result.`
+            "List of configured active pipelines matching the search result."
           )}
         </TableCaption>
         <Thead>
