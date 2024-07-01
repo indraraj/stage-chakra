@@ -26,16 +26,13 @@ const SearchInput: React.FC<SearchInputProps> = ({
   const { colorMode } = useColorMode();
 
   const onClear = () => {
-    onSearch &&
-      onSearch({
-        target: { value: "" },
-      } as React.ChangeEvent<HTMLInputElement>);
+    onSearch?.({
+      target: { value: "" },
+    } as React.ChangeEvent<HTMLInputElement>);
   };
 
-
-
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    onSearch && onSearch(event);
+    onSearch?.(event);
   };
 
   return (

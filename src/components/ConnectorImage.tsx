@@ -75,9 +75,6 @@ const ConnectorImage: React.FC<ConnectorImageProps> = ({
     case connectorType.includes("pravega"):
       src = pravega;
       break;
-    default:
-      src = "";
-      break;
   }
 
   return size ? (

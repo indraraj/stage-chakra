@@ -79,7 +79,7 @@ const SourceSinkTable: React.FC<SourceSinkTableProps> = ({
             <>
               {`No matching ${tableType} is present. `}
               <br />
-              <Button variant={"link"} onClick={onClear}>
+              <Button variant="link" onClick={onClear}>
                 Clear search field
               </Button>
             </>

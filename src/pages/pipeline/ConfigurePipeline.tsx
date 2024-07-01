@@ -41,6 +41,10 @@ const ConfigurePipeline: React.FC = () => {
 
   const { source, destination } = useData();
 
+  const lightBackground = colorMode === "dark" ? "gray.800" : "white";
+  const darkBackground =
+    colorMode === "dark" ? "gray.800" : `${AppThemeGreen.Background}`;
+
   const navigateTo = (url: string) => {
     navigate(url);
   };
@@ -116,7 +120,14 @@ const ConfigurePipeline: React.FC = () => {
   return (
     <>
       <PageHeader title="Create pipeline" isPadded />
-      <Box mr="32" ml="32" bg={colorMode === "dark" ? "gray.700" : "white"} borderRadius="lg" p="4" shadow="md">
+      <Box
+        mr="32"
+        ml="32"
+        bg={lightBackground}
+        borderRadius="lg"
+        p="4"
+        shadow="md"
+      >
         <Flex borderBottom="1px solid" pb="1">
           <Box>
             <Text fontSize="md">
@@ -146,9 +157,7 @@ const ConfigurePipeline: React.FC = () => {
             <Box pt="2">
               <Text fontSize="md">1. Capture details</Text>
               <Box
-                bg={`${
-                  colorMode === "dark" ? "gray.800" : `${AppThemeGreen.Background}`
-                }`}
+                bg={darkBackground}
                 mt="1"
                 pr="3"
                 pl="3"
@@ -160,15 +169,11 @@ const ConfigurePipeline: React.FC = () => {
                   <FormLabel>Pipeline</FormLabel>
                   <HStack>
                     <Box width="35px">
-                      <ConnectorImage
-                        connectorType={source ? source.type : ""}
-                      />
+                      <ConnectorImage connectorType={source?.type ?? ""} />
                     </Box>
                     <Icon boxSize="6" as={ArrowForwardIcon} />
                     <Box width="35px">
-                      <ConnectorImage
-                        connectorType={destination ? destination.type : ""}
-                      />
+                      <ConnectorImage connectorType={destination?.type ?? ""} />
                     </Box>
                   </HStack>
                 </FormControl>
@@ -176,7 +181,7 @@ const ConfigurePipeline: React.FC = () => {
                   <FormLabel>Pipeline name</FormLabel>
                   <Input
                     type="text"
-                    bg={colorMode === "dark" ? "gray.700" : "white"}
+                    bg={lightBackground}
                     isInvalid={!!pipelineNameError}
                     errorBorderColor="crimson"
                     value={pipelineName}
@@ -187,7 +192,7 @@ const ConfigurePipeline: React.FC = () => {
                   <FormLabel>Detail</FormLabel>
                   <Input
                     type="text"
-                    bg={colorMode === "dark" ? "gray.700" : "white"}
+                    bg={lightBackground}
                     value={detail}
                     onChange={(e) => setDetail(e.target.value)}
                   />
@@ -201,9 +206,7 @@ const ConfigurePipeline: React.FC = () => {
             <Box pt="2">
               <Text fontSize="md">2. Configuration properties</Text>
               <Box
-                bg={`${
-                  colorMode === "dark" ? "gray.800" : `${AppThemeGreen.Background}`
-                }`}
+                bg={darkBackground}
                 mt="1"
                 pr="3"
                 pl="3"
@@ -214,7 +217,7 @@ const ConfigurePipeline: React.FC = () => {
                 <FormControl isRequired>
                   <FormLabel>Log level</FormLabel>
                   <Select
-                    bg={colorMode === "dark" ? "gray.700" : "white"}
+                    bg={lightBackground}
                     defaultValue="placeholder"
                     isInvalid={!!logLevelError}
                     errorBorderColor="crimson"

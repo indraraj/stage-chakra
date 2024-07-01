@@ -37,7 +37,7 @@ const routes: AppRouteConfig[] = [
   {
     component: Home,
     label: "Home",
-    path: "/" || "/home",
+    path: "/",
     title: `${AppBranding} | Home`,
     isMain: true,
     icon: MdOutlineHome,

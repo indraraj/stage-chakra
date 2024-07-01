@@ -24,10 +24,9 @@ const Sources: React.FC = () => {
   const [searchQuery, setSearchQuery] = React.useState<string>("");
 
   const onClear = () => {
-    onSearch &&
-      onSearch({
-        target: { value: "" },
-      } as React.ChangeEvent<HTMLInputElement>);
+    onSearch?.({
+      target: { value: "" },
+    } as React.ChangeEvent<HTMLInputElement>);
   };
 
   const {
@@ -95,7 +94,7 @@ const Sources: React.FC = () => {
             data={searchQuery.length > 0 ? searchResult : sourcesList}
             tableType="source"
             onClear={onClear}
-            isFiltered={searchQuery.length > 0 }
+            isFiltered={searchQuery.length > 0}
           />
         </Box>
       ) : (

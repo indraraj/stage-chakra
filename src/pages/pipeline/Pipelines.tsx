@@ -23,10 +23,9 @@ const Pipelines: React.FC = () => {
   const [searchQuery, setSearchQuery] = React.useState<string>("");
 
   const onClear = () => {
-    onSearch &&
-      onSearch({
-        target: { value: "" },
-      } as React.ChangeEvent<HTMLInputElement>);
+    onSearch?.({
+      target: { value: "" },
+    } as React.ChangeEvent<HTMLInputElement>);
   };
 
   const {
