@@ -17,9 +17,9 @@ import {
   MenuButton,
   MenuItem,
   MenuList,
-  MenuDivider,
   useColorMode,
   Button,
+  MenuGroup,
 } from "@chakra-ui/react";
 import React from "react";
 import { MdArrowDownward, MdOutlineMoreVert } from "react-icons/md";
@@ -33,6 +33,7 @@ import { BsTags } from "react-icons/bs";
 import ConnectorImage from "./ConnectorImage";
 import { getConnectorTypeName } from "../utils/helpers";
 import { API_URL } from "../utils/constants";
+import { useNavigate } from "react-router-dom";
 
 interface SourceSinkTableProps {
   tableType: "source" | "destination";
@@ -48,6 +49,7 @@ const SourceSinkTable: React.FC<SourceSinkTableProps> = ({
   isFiltered,
 }) => {
   const { colorMode } = useColorMode();
+  const navigate = useNavigate();
   const handleDelete = async (id: number, type: string) => {
     const resourceType = type === "source" ? "sources" : "destinations";
     const url = `${API_URL}/api/${resourceType}/${id}`;
@@ -63,6 +65,15 @@ const SourceSinkTable: React.FC<SourceSinkTableProps> = ({
   const onDeleteHandler = (id: number) => {
     handleDelete(id, tableType);
   };
+
+  const onEditClick = (instanceId: string) => {
+    navigate(
+      tableType === "source"
+        ? `/source/${instanceId}`
+        : `/destination/${instanceId}`
+    );
+  };
+
   return (
     <TableContainer
       bg={colorMode !== "dark" ? "white" : "gray.700"}
@@ -140,12 +151,14 @@ const SourceSinkTable: React.FC<SourceSinkTableProps> = ({
                     <MdOutlineMoreVert />
                   </MenuButton>
                   <MenuList>
-                    <MenuItem isDisabled>Overview</MenuItem>
-                    <MenuItem isDisabled>Edit</MenuItem>
-                    <MenuDivider />
-                    <MenuItem onClick={() => onDeleteHandler(instance.id)}>
-                      Delete
-                    </MenuItem>
+                    <MenuGroup title="Actions" textAlign="left">
+                      <MenuItem onClick={() => onEditClick("" + instance.id)}>
+                        Edit
+                      </MenuItem>
+                      <MenuItem onClick={() => onDeleteHandler(instance.id)}>
+                        Delete
+                      </MenuItem>
+                    </MenuGroup>
                   </MenuList>
                 </Menu>
               </Td>
