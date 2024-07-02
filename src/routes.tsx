@@ -20,6 +20,9 @@ import CreateDestination from "./pages/destination/CreateDestination";
 import PipelineDesigner from "./pages/pipeline/PipelineDesigner";
 import CreateVault from "./pages/vaults/CreateVault";
 import ConfigurePipeline from "./pages/pipeline/ConfigurePipeline";
+import SourceEdit from "./pages/source/SourceEdit";
+import DestinationEdit from "./pages/destination/DestinationEdit";
+
 
 export interface IAppRoute {
   label: string;
@@ -52,6 +55,14 @@ const routes: AppRouteConfig[] = [
     icon: MdLogout,
   },
   {
+    component: SourceEdit,
+    label: "Source catalog",
+    path: "/source/:sourceId",
+    title: `${AppBranding} | Source`,
+    isSubPath: true,
+    icon: MdLogout,
+  },
+  {
     component: SourceCatalog,
     label: "Source catalog",
     path: "/source/catalog",
@@ -73,6 +84,14 @@ const routes: AppRouteConfig[] = [
     path: "/destination",
     title: `${AppBranding} | Destination`,
     isMain: true,
+    icon: MdLogin,
+  },
+  {
+    component: DestinationEdit,
+    label: "Destination catalog",
+    path: "/destination/:destinationId",
+    title: `${AppBranding} | Destination`,
+    isSubPath: true,
     icon: MdLogin,
   },
   {

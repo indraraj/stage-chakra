@@ -44,6 +44,7 @@ export type Destination = {
   schema: string;
   vaults: Vault[];
   config: DestinationConfig;
+  description?: string;
   name: string;
   id: number;
 };
@@ -53,6 +54,7 @@ export type Pipeline = {
   id: number;
   source: PipelineSource;
   destination: PipelineDestination;
+  description?: string;
   transforms: Transform[];
   logLevel: string;
 };
@@ -68,6 +70,7 @@ export type Source = {
   schema: string;
   vaults: Vault[];
   config: SourceConfig;
+  description?: string;
   name: string;
   id: number;
 };
@@ -83,6 +86,35 @@ export const createPost = async <T,>(
   try {
     const response = await fetch(url, {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    });
+
+    if (!response.ok) {
+      const errorMsg = `Failed to create source: ${response.statusText}`;
+      return { error: errorMsg };
+    }
+
+    const data = await response.json();
+    // Refresh data after source is created
+    queryClient.invalidateQueries("sources");
+
+    return { data };
+  } catch (error) {
+    console.error("Error creating source:", error);
+    return { error: "An error occurred while creating source" };
+  }
+};
+
+export const editPut = async <T,>(
+  url: string,
+  payload: any
+): Promise<ApiResponse<T>> => {
+  try {
+    const response = await fetch(url, {
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
