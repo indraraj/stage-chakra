@@ -171,7 +171,7 @@ const SourceEdit: React.FC = () => {
 
   return (
     <>
-      <PageHeader title="Edit source" isPadded />
+      <PageHeader title={`Edit source`} isPadded />
       <Box
         mr="32"
         ml="32"
@@ -379,9 +379,9 @@ const SourceEdit: React.FC = () => {
           <Box>
             <Button
               variant="outline"
-              onClick={() => navigateTo("/source/catalog")}
+              onClick={() => navigateTo("/source")}
             >
-              Cancel
+              Back
             </Button>
           </Box>
           <Spacer />

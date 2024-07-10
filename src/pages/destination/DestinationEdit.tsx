@@ -166,7 +166,7 @@ const DestinationEdit: React.FC = () => {
 
   return (
     <>
-      <PageHeader title="Edit destination" isPadded />
+      <PageHeader title={`Edit destination`} isPadded />
       <Box
         mr="32"
         ml="32"
@@ -310,7 +310,7 @@ const DestinationEdit: React.FC = () => {
           <Box>
             <Button
               variant="outline"
-              onClick={() => navigateTo("/destination/catalog")}
+              onClick={() => navigateTo("/destination")}
             >
               Back
             </Button>
@@ -323,7 +323,7 @@ const DestinationEdit: React.FC = () => {
               loadingText="Create destination"
               onClick={handleCreateDestination}
             >
-              Create destination
+              Save
             </Button>
           </Box>
         </Flex>

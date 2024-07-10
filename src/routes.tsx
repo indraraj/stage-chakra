@@ -22,6 +22,8 @@ import CreateVault from "./pages/vaults/CreateVault";
 import ConfigurePipeline from "./pages/pipeline/ConfigurePipeline";
 import SourceEdit from "./pages/source/SourceEdit";
 import DestinationEdit from "./pages/destination/DestinationEdit";
+import PipelineEdit from "./pages/pipeline/PipelineEdit";
+import PipelineOverview from "./pages/pipeline/PipelineOverview";
 
 
 export interface IAppRoute {
@@ -57,7 +59,7 @@ const routes: AppRouteConfig[] = [
   {
     component: SourceEdit,
     label: "Source catalog",
-    path: "/source/:sourceId",
+    path: "/source/:sourceId/edit",
     title: `${AppBranding} | Source`,
     isSubPath: true,
     icon: MdLogout,
@@ -89,7 +91,7 @@ const routes: AppRouteConfig[] = [
   {
     component: DestinationEdit,
     label: "Destination catalog",
-    path: "/destination/:destinationId",
+    path: "/destination/:destinationId/edit",
     title: `${AppBranding} | Destination`,
     isSubPath: true,
     icon: MdLogin,
@@ -146,6 +148,22 @@ const routes: AppRouteConfig[] = [
     component: ConfigurePipeline,
     label: "Create Pipeline",
     path: "/pipeline/pipeline_designer/configure",
+    title: `${AppBranding} | Pipeline`,
+    isSubPath: true,
+    icon: MdSwapCalls,
+  },
+  {
+    component: PipelineEdit,
+    label: "Create Pipeline",
+    path: "/pipeline/:pipelineId/edit",
+    title: `${AppBranding} | Pipeline`,
+    isSubPath: true,
+    icon: MdSwapCalls,
+  },
+  {
+    component: PipelineOverview,
+    label: "Create Pipeline",
+    path: "/pipeline/:pipelineId/overview",
     title: `${AppBranding} | Pipeline`,
     isSubPath: true,
     icon: MdSwapCalls,

@@ -10,6 +10,7 @@ interface DataNodeProps {
     label: string;
     type: string;
     editAction: () => void;
+    compositionFlow?: boolean;
   };
 }
 
@@ -29,6 +30,7 @@ const DataNode: React.FC<DataNodeProps> = ({ data }) => {
         <Handle type="source" position={Position.Right} id="smt-input" />
       )}
       <Icon
+        display={data?.compositionFlow ? "none" : ""}
         as={EditIcon} // Change this to whatever icon you need
         position="absolute"
         top="4px"
