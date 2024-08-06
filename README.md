@@ -10,8 +10,10 @@ Licensed under the [Apache License, Version 2.0](http://www.apache.org/licenses/
 # Debezium platform stage
 
 This repository contains a new web-based UI for the Debezium operator. The Stage UI is a React+Typescript-based Single Page Application built with Vite.
+<img width="1728" alt="image" src="https://github.com/user-attachments/assets/ddaa3d33-f367-4993-aa9c-bd754d276b6f">
 
-<img width="1171" alt="image" src="https://github.com/indraraj/stage-chakra/assets/8264372/98908e43-3093-42a3-84b3-570d6eb0139f">
+
+
 
 This project is under active development, any contributions are very welcome.
 
